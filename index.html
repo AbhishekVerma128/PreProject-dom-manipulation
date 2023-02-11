@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main-container{
+           height: 300px;
+            width: 800px;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+         #main-container div{
+             height: 100px;
+            width: 100px;
+             border: 1px solid black;
+             margin: 10px;
+         }
+    </style>
+</head>
+<body>
+    <div id="main-container"></div>
+    <div>
+        <button id="clrBtn"> change color</button>
+        <button id="add-child">add child</button>
+        <button id="remove-chlid">remove child</button>
+    </div>
+    <script>
+        const mydiv = document.getElementById("main-container")
+        const clrBtn = document.getElementById("clrBtn")
+        const addChild = document.getElementById("add-child")
+        const removeChlid = document.getElementById("remove-chlid")
+        let count;
+        clrBtn.addEventListener("click",()=>{
+            
+           count = Math.floor(Math.random()*10)*20
+            console.log()
+            mydiv.style = `background-color:hsl(${count}, 100%, 50%)`
+        })
+
+        addChild.addEventListener("click",()=>{
+            const newdiv = document.createElement("div");
+            mydiv.appendChild(newdiv)
+
+        })
+
+        removeChlid.addEventListener("click",()=>{
+            const children = mydiv.lastChild
+            // console.log(children.length);
+            mydiv.removeChild(children)
+        })
+    </script>
+</body>
+</html>
